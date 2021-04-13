@@ -7,14 +7,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="Stephen Tao">
-  <meta name="keywords" content="Tartan Wind Ensemble, Carnegie Mellon, Pittsburgh, TWE, CMU, Carnegie Mellon University">
+  <meta name="keywords" content="Tartan Wind Ensemble, Carnegie Mellon, Pittsburgh">
   <meta name="CMU Tartan Wind Ensemble">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Tartan Wind Ensemble</title>
 
-  <link rel="icon" href="./assets/logo_wind.png" type="image/png" sizes="16x16">
-
+  <link rel="icon" href="./assets/logo.png" type="image/png" sizes="16x16">
 
   <!-- %%%% STYLES %%%% -->
 
@@ -38,6 +37,11 @@
   <link rel="stylesheet" media="all" type="text/css" href="./components/footer/footer.css">
   <link rel="stylesheet" media="all" type="text/css" href="./components/accordion/accordion.css">
   <link rel="stylesheet" media="all" type="text/css" href="./components/event_card/event_card.css">
+  <link rel="stylesheet" media="all" type="text/css" href="./components/concert_sets_archive/concert_sets_archive_roster/concert_sets_archive_roster.css">
+  <link rel="stylesheet" media="all" type="text/css" href="./components/concert_sets_archive/concert_sets_archive_content/concert_sets_archive_content.css">
+  <link rel="stylesheet" media="all" type="text/css" href="./components/concert_sets_archive/concert_sets_archive.css">
+  <link rel="stylesheet" media="all" type="text/css" href="./components/officer_profile/officer_profile.css">
+
 
   <!-- %%%% END STYLES %%%% -->
 
@@ -45,6 +49,9 @@
 
   <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+
+  <!-- Popper -->
+  <script src="https://unpkg.com/popper.js"></script>
 
   <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -55,6 +62,7 @@
 
   <!-- General App Scripts -->
   <script src="./js/events.js"></script>
+  <script src="./components/concert_sets_archive/concert_sets_archive_roster/concert_sets_archive_roster.js"></script>
   <!-- <script src="./components/timer/timer.js"></script> -->
 
   <!-- %%%% END SCRIPTS %%%% -->
@@ -66,13 +74,13 @@
   <div class="container">
 
     <div class="row pl-3" id="header">
-      <h1 class="m-0">Carnegie Mellon Tartan Wind Ensemble</h1>
+      <h1>Carnegie Mellon Tartan Wind Ensemble</h1>
     </div>
     <div class="title-bar title-bar-desktop row navbar navbar-default sticky-top d-none d-lg-flex justify-content-center align-items-center">
       <div class="container">
         <div class="title-bar-row row">
           <div class="col nav-select d-flex justify-content-center align-items-center">
-            <a class="menu" href="about.html">About</a>
+            <a class="menu" href="news.html">News</a>
           </div>
           <div class="col nav-select d-flex justify-content-center align-items-center">
             <a class="menu" href="contact.html">Contact</a>
@@ -86,7 +94,7 @@
             <a class="menu" href="https://calendar.google.com/calendar/embed?src=cmutwe%40gmail.com&ctz=America%2FNew_York">Calendar</a>
           </div>
           <div class="col nav-select d-flex justify-content-center align-items-center">
-            <a class="menu " id="members" href="members.html">Members</a>
+            <a class="menu " id="members" href="members.html">Member Info</a>
           </div>
         </div>
       </div>
@@ -95,7 +103,7 @@
       <div class="container">
         <div class="title-bar-row title-bar-tablet row">
           <div class="col nav-select d-flex justify-content-center align-items-center">
-            <a class="menu" href="about.html">About</a>
+            <a class="menu" href="news.html">News</a>
           </div>
           <div class="col nav-select d-flex justify-content-center align-items-center">
             <a class="menu" href="contact.html">Contact</a>
@@ -109,7 +117,7 @@
             <a class="menu" href="https://calendar.google.com/calendar/embed?src=cmutwe%40gmail.com&ctz=America%2FNew_York">Calendar</a>
           </div>
           <div class="col nav-select d-flex justify-content-center align-items-center">
-            <a class="menu " id="members" href="members.html">Members</a>
+            <a class="menu " id="members" href="members.html">Member Info</a>
           </div>
         </div>Î
       </div>
@@ -118,75 +126,188 @@
       <div class="container">
         <div class="title-bar-row title-bar-mobile row ">
           <a class="menu btn btn-block" href="index.html">Home</a>
-          <a class="menu btn btn-block" href="about.html">About</a>
+          <a class="menu btn btn-block" href="news.html">News</a>
           <a class="menu btn btn-block" href="contact.html">Contact</a>
           <a class="menu btn btn-block" href="https://calendar.google.com/calendar/embed?src=cmutwe%40gmail.com&ctz=America%2FNew_York">Calendar</a>
-          <a class="menu btn btn-block" href="members.html">Members</a>
+          <a class="menu btn btn-block" href="members.html">Member Info</a>
         </div>
       </div>
     </div>
 
-    <div class="row no-gutters news">
-      <div class="col-lg-8 page_head_img">
-        <img src="./assets/news.jpg" alt="TWE warming up for the 2017 Winter Concert">
+    <div class="row no-gutters">
+      <div class="col-lg-8" id="page_head_img">
+        <img src="./assets/about.jpg" alt="TWE warming up for the 2017 Winter Concert">
       </div>
-      <div class="col-lg-4 accordion-container">
+      <div class="col-lg-4">
         <div class="section-header">
-          <h2 class="p-3 mb-0">News
-            </h1>
+          <h2 class="p-3 mb-0">About Us</h2>
         </div>
-        <div id="accordion">
+        <p class="p-3">The Tartan Wind Ensemble (TWE) is a musical ensemble at Carnegie Mellon University in Pittsburgh, PA. It
+          provides an opportunity for any person affiliated with the University, including but not limited to students, staff,
+          faculty, or alumni, to rehearse and perform in a wind ensemble in a recreational manner with no auditions.</p>
+        <p class="p-3">Even during the pandemic, TWE is doing our best to continue many of the events and activities we've done
+          in past semesters. We have General Band Meetings over Zoom and are continuing to expand upon our in-person percussion
+          practices in order to try and give all band members and opportunity to keep playing music and develop the TWE community remotely. </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="section-header">
+        <h2 class="p-3 mb-0">FAQ</h2>
+      </div>
+      <div class="col-md-4 p-3">
+        <h3>Watching TWE</h3>
+        <div id="accordion-watch" class="border border-dark">
           <div class="card border-top-0 border-left-0 border-right-0">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="headingOne-watch">
               <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-watch" aria-expanded="false" aria-controls="collapseOne-watch">
                   <i class="fas fa-chevron-down"></i>
-                  Spring Semester Begins, in-person percussion rehearsals!
+                  When can I hear TWE perform?
                 </button>
               </h5>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapseOne-watch" class="collapse" aria-labelledby="headingOne-watch" data-parent="#accordion-watch">
               <div class="card-body">
-                Spring semester has begun and we're so excited to be learning repertoire and 
-                playing music together on Zoom! In addition, we also have in-person percussion
-                rehearsals going on, so stay tuned to see some things that our percussionists
-                have been working on!
+                TWE has two concerts a year, at the end of both the Fall and Spring semesters. Despite it being a pandemic, we're still recording virtual performances! 
+                To watch us, check us out on <a href="https://www.youtube.com/channel/UCAyxutT91tMhmvDhk7hgNjw" target="_blank">Youtube</a>.
               </div>
             </div>
           </div>
           <div class="card border-top-0 border-left-0 border-right-0">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="headingTwo-watch">
               <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo-watch" aria-expanded="false" aria-controls="collapseTwo-watch">
                   <i class="fas fa-chevron-down"></i>
-                  Fall Concert is Live!
+                  Can I watch the event online?
                 </button>
               </h5>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div id="collapseTwo-watch" class="collapse" aria-labelledby="headingTwo-watch" data-parent="#accordion-watch">
               <div class="card-body">
-                We are so excited to announce that our fall concert set is now live
-                and filled with some amazing music produced by our TWE musicians; check
-                it out on our Youtube Channel!
+                Yes you can! Since everything is currently virtual, you can see our performance(s) on our <a href="https://www.youtube.com/channel/UCAyxutT91tMhmvDhk7hgNjw" target="_blank">Youtube Channel</a>.
               </div>
             </div>
           </div>
           <div class="card border-0">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="headingThree-watch">
               <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree-watch" aria-expanded="false" aria-controls="collapseThree-watch">
                   <i class="fas fa-chevron-down"></i>
-                  New Spring Officers!
+                  What is the cost of the concert?
                 </button>
               </h5>
             </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div id="collapseThree-watch" class="collapse" aria-labelledby="headingThree-watch" data-parent="#accordion-watch">
               <div class="card-body">
-                After voting, we now have our new team of TWE Officers for the Spring!
-                We have Amanda and Alice serving as Co-Presidents, Kendall as our librarian, 
-                Stephen as our PR Officer, and Stacey as our Finance Officer! Feel free to
-                ask any of them if you have any questions (or if you're interested in a 
-                coffee chat!)
+                The concert is always and forever will be absolutely free of charge!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-3">
+        <h3>Joining TWE</h3>
+        <div id="accordion-join" class="border border-dark">
+          <div class="card border-top-0 border-left-0 border-right-0">
+            <div class="card-header" id="headingOne-join">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-join" aria-expanded="false" aria-controls="collapseOne-join">
+                  <i class="fas fa-chevron-down"></i>
+                  How can I join TWE?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne-join" class="collapse" aria-labelledby="headingOne-join" data-parent="#accordion-join">
+              <div class="card-body">
+                Wow first off we are so excited you are considering joining us! To join simply show up to one of our rehearsals which can
+                be found on our <a href="https://calendar.google.com/calendar/embed?src=cmutwe%40gmail.com&ctz=America%2FNew_York"
+                  target="_blank">calendar</a>. We will have music for you to play, and accept all skill levels.
+              </div>
+            </div>
+          </div>
+          <div class="card border-top-0 border-left-0 border-right-0">
+            <div class="card-header" id="headingTwo-join">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo-join" aria-expanded="false" aria-controls="collapseTwo-join">
+                  <i class="fas fa-chevron-down"></i>
+                  Are there any auditions?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo-join" class="collapse" aria-labelledby="headingTwo-join" data-parent="#accordion-join">
+              <div class="card-body">
+                Nope! Any musician is welcome to join, and there are never any auditions.
+              </div>
+            </div>
+          </div>
+          <div class="card border-0">
+            <div class="card-header" id="headingThree-join">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree-join" aria-expanded="false" aria-controls="collapseThree-join">
+                  <i class="fas fa-chevron-down"></i>
+                  What if I don't have my instrument?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree-join" class="collapse" aria-labelledby="headingThree-join" data-parent="#accordion-join">
+              <div class="card-body">
+                We do have instruments that are available to rent out for the semester. These are available in limited supply, but it is
+                very likely we can get you an instrument to play. We are also doing our best to schedule in person percussion rehearsals
+                for percussionists in Pittsburgh.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-3">
+        <h3>Misc TWE</h3>
+        <div id="accordion-misc" class="border border-dark">
+          <div class="card border-top-0 border-left-0 border-right-0">
+            <div class="card-header" id="headingOne-misc">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-misc" aria-expanded="false" aria-controls="collapseOne-misc">
+                  <i class="fas fa-chevron-down"></i>
+                  Can I make a suggestion?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne-misc" class="collapse" aria-labelledby="headingOne-misc" data-parent="#accordion-misc">
+              <div class="card-body">
+                Yes, we would love to hear literally anything you have to say. If you would like to reach out to us via email, our email
+                is cmutwe@gmail.com
+              </div>
+            </div>
+          </div>
+          <div class="card border-top-0 border-left-0 border-right-0">
+            <div class="card-header" id="headingTwo-misc">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo-misc" aria-expanded="false" aria-controls="collapseTwo-misc">
+                  <i class="fas fa-chevron-down"></i>
+                  When was TWE founded?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo-misc" class="collapse" aria-labelledby="headingTwo-misc" data-parent="#accordion-misc">
+              <div class="card-body">
+                The Tartan Wind Ensemble was founded in the Spring of 2017, with our first concert coming in Fall 2017. Founding officers
+                included E.J. Dorsey, Dylan Hyun, Becky Jesurum, and Michael Spoerl.
+              </div>
+            </div>
+          </div>
+          <div class="card border-0">
+            <div class="card-header" id="headingThree-misc">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree-misc" aria-expanded="false" aria-controls="collapseThree-misc">
+                  <i class="fas fa-chevron-down"></i>
+                  How can I become an Officer?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree-misc" class="collapse" aria-labelledby="headingThree-misc" data-parent="#accordion-misc">
+              <div class="card-body">
+                At the end of the Fall Semester elections are held to determine officers for the next two semesters. Any member is welcome
+                to run. Scroll down to see a list of current officers and positions.
               </div>
             </div>
           </div>
@@ -194,49 +315,257 @@
       </div>
     </div>
 
-    <div class="row events">
+    <div class="concert-sets-archive row no-gutters">
       <div class="section-header">
-        <h2 class="p-3 mb-0">Upcoming Events</h2>
+        <h2 class="p-3 mb-0">Previous Concert Sets</h2>
       </div>
-      <div class="col-md-4 p-4">
-        <div class="event-card border border-dark rounded">
-          <div class="card-header d-flex align-items-center">
-            <span class="m-0">Wednesday 3/31</span>
-            <span class="ml-auto m-0">7pm-8pm</span>
+
+      <div class="nav col-md-4 flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-f20-tab" data-toggle="pill" href="#v-pills-f20" role="tab" aria-controls="v-pills-home"
+          aria-selected="false">Fall 2020
+        </a>
+        <a class="nav-link" id="v-pills-s18-tab" data-toggle="pill" href="#v-pills-s18" role="tab" aria-controls="v-pills-home" aria-selected="true">Spring
+          2018
+        </a>
+        <a class="nav-link" id="v-pills-f17-tab" data-toggle="pill" href="#v-pills-f17" role="tab" aria-controls="v-pills-home" aria-selected="true">Fall
+          2017
+        </a>
+      </div>
+
+      <div class="tab-content col-md-8" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-f20" role="tabpanel" aria-labelledby="v-pills-f20-tab">
+          <div class="concert-set-content">
+            <div class="row no-gutters">
+              <div class="col-md-6 border border-dark border-left-0 border-bottom-0 border-top-0">
+                <div class="archive-header d-flex align-items-center justify-content-center p-2">
+                  Concert Set
+                </div>
+                <table class="table table-striped table-pieces mb-0">
+                  <tr>
+                    <td>Excerpts from The Firebird</td>
+                    <td>Igor Stravinsky, Arr. Jay Bocook</td>
+                  </tr>
+                  <tr>
+                    <td>Elsa's Procession to the Cathedral</td>
+                    <td>Richard Wagner </td>
+                  </tr>
+                  <tr>
+                    <td>Erhalt uns in der Wahrheit (Thy Truth, which never varies)</td>
+                    <td>J. S. Bach</td>
+                  </tr>
+                </table>
+                <a href="https://www.youtube.com/watch?v=fkUB_JUWdZ0" target="_blank">
+                  <button class="btn btn-sm m-2">Watch Performance</button>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <div class="archive-header d-flex align-items-center justify-content-center p-2">
+                  Ensemble Members
+                </div>
+                <!-- Even if the row is empty, you still have to include all 5 -->
+                <div class="invisible-box d-flex justify-content-center align-items-center">
+                  <div id="f20-concert-row-1" class="concert-row-1 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f20-concert-row-2" class="concert-row-circle concert-row-2 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f20-concert-row-3" class="concert-row-circle concert-row-3 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f20-concert-row-4" class="concert-row-circle concert-row-4 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f20-concert-row-5" class="concert-row-circle concert-row-5 d-flex justify-content-center align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-body d-flex flex-column align-items-center">
-            <img src="./assets/music_note.gif"> Rehearsal
+        </div>
+
+        <div class="tab-pane fade show" id="v-pills-s18" role="tabpanel" aria-labelledby="v-pills-s18-tab">
+          <div class="concert-set-content">
+            <div class="row no-gutters">
+              <div class="col-md-6 border border-dark border-left-0 border-bottom-0 border-top-0">
+                <div class="archive-header d-flex align-items-center justify-content-center p-2">
+                  Concert Set
+                </div>
+                <table class="table table-striped table-pieces mb-0">
+                  <tr>
+                    <td>Awakening Hills</td>
+                    <td>Richard Saucedo</td>
+                  </tr>
+                  <tr>
+                    <td>Reverberations</td>
+                    <td>Brian Balmages</td>
+                  </tr>
+                  <tr>
+                    <td>Loch Lomond</td>
+                    <td>Frank Ticheli</td>
+                  </tr>
+                  <tr>
+                    <td>English Folk Song Suite</td>
+                    <td>Ralph Vaughn Williams</td>
+                  </tr>
+                  <tr>
+                    <td>Nimrod</td>
+                    <td>Edward Elgar</td>
+                  </tr>
+                </table>
+                <a href="https://www.facebook.com/tartanwindensemble/videos/185326845439636/" target="_blank">
+                  <button class="btn btn-sm m-2">Watch Performance</button>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <div class="archive-header d-flex align-items-center justify-content-center p-2">
+                  Ensemble Members
+                </div>
+                <div class="invisible-box d-flex justify-content-center align-items-center">
+                  <div id="s18-concert-row-1" class="concert-row-1 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="s18-concert-row-2" class="concert-row-circle concert-row-2 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="s18-concert-row-3" class="concert-row-circle concert-row-3 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="s18-concert-row-4" class="concert-row-circle concert-row-4 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="s18-concert-row-5" class="concert-row-circle concert-row-5 d-flex justify-content-center align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-footer">
-            <p class="m-0">Zoom</p>
+        </div>
+        <div class="tab-pane fade show" id="v-pills-f17" role="tabpanel" aria-labelledby="v-pills-f17-tab">
+          <div class="concert-set-content">
+            <div class="row no-gutters">
+              <div class="col-md-6 border border-dark border-left-0 border-bottom-0 border-top-0">
+                <div class="archive-header d-flex align-items-center justify-content-center p-2">
+                  Concert Set
+                </div>
+                <table class="table table-striped table-pieces mb-0">
+                  <tr>
+                    <td>Whip and Spur</td>
+                    <td>Thomas S. Allen</td>
+                  </tr>
+                  <tr>
+                    <td>Emperata Overture</td>
+                    <td>Claude T. Smith</td>
+                  </tr>
+                  <tr>
+                    <td>Irish Tune and Shepherd's Hey</td>
+                    <td>Percy Grainger</td>
+                  </tr>
+                  <tr>
+                    <td>Of Barges and Boats</td>
+                    <td>Stephen Bulla</td>
+                  </tr>
+                  <tr>
+                    <td>Overture in B Flat</td>
+                    <td>Caesar Giovannini</td>
+                  </tr>
+                  <tr>
+                    <td>Second Suite in F</td>
+                    <td>Gustav Holst</td>
+                  </tr>
+                </table>
+                <a href="https://www.facebook.com/tartanwindensemble/videos/151278948844426/" target="_blank">
+                  <button class="btn btn-sm m-2">Watch Performance</button>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <div class="archive-header d-flex align-items-center justify-content-center p-2">
+                  Ensemble Members
+                </div>
+                <div class="invisible-box d-flex justify-content-center align-items-center">
+                  <div id="f17-concert-row-1" class="concert-row-1 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f17-concert-row-2" class="concert-row-circle concert-row-2 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f17-concert-row-3" class="concert-row-circle concert-row-3 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f17-concert-row-4" class="concert-row-circle concert-row-4 d-flex justify-content-center align-items-center">
+                  </div>
+                  <div id="f17-concert-row-5" class="concert-row-circle concert-row-5 d-flex justify-content-center align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4 p-4">
-        <div class="event-card border border-dark rounded">
-          <div class="card-header d-flex align-items-center">
-            <span class="m-0">Sunday 4/11</span>
-            <span class="ml-auto m-0">4:30pm-5:30pm</span>
-          </div>
-          <div class="card-body d-flex flex-column align-items-center">
-            <img src="./assets/music_note.gif"> Rehearsal
-          </div>
-          <div class="card-footer">
-            <p class="m-0">Zoom</p>
+    </div>
+
+    <div class="section-header">
+      <h2 class="p-3 mb-0">Current Officers</h2>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6 p-3">
+        <div class="officer-profile">
+          <div class="row">
+            <div class="col-sm-6 d-flex align-items-center justify-content-center">
+              <img src="./assets/officers/amanda.jpg">
+            </div>
+            <div class="col-sm-6">
+              <h3>Amanda Chisholm</h3>
+              <h4>Co-President</h4>
+              <p>Chemistry <br> Class of 2023</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4 p-4">
-        <div class="event-card border border-dark rounded">
-          <div class="card-header d-flex align-items-center">
-            <span class="m-0">Wednesday 4/21</span>
-            <span class="ml-auto m-0">7pm-8pm</span>
+      <div class="col-md-6 p-3">
+        <div class="officer-profile">
+          <div class="row">
+            <div class="col-sm-6 d-flex align-items-center justify-content-center">
+              <img src="./assets/officers/alice.png">
+            </div>
+            <div class="col-sm-6">
+              <h3>Alice Zhou</h3>
+              <h4>Co-President</h4>
+              <p>Cognitive Science, Behavioral Economics, Policy and Organizations <br> Class of 2022</p>
+            </div>
           </div>
-          <div class="card-body d-flex flex-column align-items-center">
-            <img src="./assets/music_note.gif"> Rehearsal
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-4 p-3">
+        <div class="officer-profile">
+          <div class="row">
+            <div class="col-sm-6 d-flex align-items-center justify-content-center">
+              <img src="./assets/officers/kendall.jpg">
+            </div>
+            <div class="col-sm-6">
+              <h3>Kendall Scarborough</h3>
+              <h4>Librarian</h4>
+              <p>Linguistics <br> Class of 2023</p>
+            </div>
           </div>
-          <div class="card-footer">
-            <p class="m-0">Zoom</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="officer-profile">
+          <div class="row">
+            <div class="col-sm-6 d-flex align-items-center justify-content-center">
+              <img src="./assets/officers/stephen.jpg">
+            </div>
+            <div class="col-sm-6">
+              <h3>Stephen Tao</h3>
+              <h4>PR Director</h4>
+              <p>Business <br> Class of 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-3">
+        <div class="officer-profile">
+          <div class="row">
+            <div class="col-sm-6 d-flex align-items-center justify-content-center">
+              <img src="./assets/officers/stacey.jpg">
+            </div>
+            <div class="col-sm-6">
+              <h3>Stacy Cho</h3>
+              <h4>Finance Chair</h4>
+              <p>Art <br> Class of 2024</p>
+            </div>
           </div>
         </div>
       </div>
@@ -261,8 +590,8 @@
       <ul>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="https://calendar.google.com/calendar/embed?src=cmutwe%40gmail.com&ctz=America%2FNew_York">Calendar</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="members.html">Members</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="members.html">Member Info</a></li>
       </ul>
     </div>
     <div class="col">
@@ -282,6 +611,7 @@
     </div>
   </div>
   </div>
+  <script src="js/concert_sets_archive_data.js"></script>
 </body>
 
 </html>

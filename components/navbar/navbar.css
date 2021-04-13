@@ -21,6 +21,17 @@ img.logo {
   pointer-events: visiblePainted;
 }
 
+img.logo:hover {
+  margin: auto;
+  display: block;
+  filter: brightness(130%);
+  max-width: 110px;
+  margin-top: 45px;
+  z-index: 100;
+  /*position: inherit;*/
+  pointer-events: visiblePainted;
+}
+
 .title-bar {
   width: 100%;
   background-color: #000;

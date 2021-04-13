@@ -56,6 +56,27 @@ const Spring18 = new Roster('Spring 2018', [DallasL,
 AnjaliB,RuiQ,SarahB,DavidN,IsabelB,KarinaC,
 AmandaM,SarahP,ZachK,NicholasS,RachelM,
 MichaelS,DylanR,ScottA,DylanH,ChrisC,BeckyJ,EvanS,EvanK,CaseyR,JeffKTru,MaxK,MadisonS,JonathanC,
-YurongD,BrandonJ,JacquelineL,JamesS,JettV], 's18')
+YurongD,BrandonJ,JacquelineL,JamesS,JettV], 's18');
 
 createSeating(Spring18);
+
+
+// Fall 2020
+const JordanL = new Member('Jordan Li', 'Saxophone', 2);
+const TeddyW2 = new Member('Teddy Warner', 'Clarinet', 2);
+const AaronG = new Member('Aaron Garrison', 'Trumpet', 3);
+const TeresaM = new Member('Teresa Myrthil', 'Trumpet', 3);
+const PaulN = new Member('Paul Nadan', 'Trombone', 4);
+const KendallS = new Member('Kendall Scarborough', 'French Horn', 3);
+const YuqiZ = new Member('Yuqi Zhou', 'French Horn', 3)
+const StephenT = new Member('Stephen Tao', 'Percussion', 4);
+const RowFive = new Member('Row Five', 'Percussion', 5);
+
+
+//Class allows for rows to be empty
+const Fall20 = new Roster('Fall 2020', [
+AnjaliB,JordanL,DavidN,TeddyW2,
+AaronG,RachelM,TeresaM,PaulN,KendallS,YuqiZ,
+StephenT], 'f20');
+
+createSeating(Fall20);
